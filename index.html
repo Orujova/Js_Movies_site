@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movies site</title>
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+      integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="icon"
+      href="https://www.svgrepo.com/show/85287/movie-clapper-open.svg"
+      type="image/x-icon"
+    />
+  </head>
+  <body>
+    <section class="hero">
+      <div class="container">
+        <header>
+          <div>
+            <h2>Logo</h2>
+
+            <ul class="menu">
+              <li>Menu 1</li>
+              <li>Menu 2</li>
+              <li class="has_dropdown" id="languageDropdown">
+                En
+                <i class="fa-solid fa-chevron-down"></i>
+                <ul class="dropdown">
+                  <li style="cursor: pointer" onclick="changeLanguage('en')">
+                    En
+                  </li>
+                  <li style="cursor: pointer" onclick="changeLanguage('zh')">
+                    Zh
+                  </li>
+                  <li style="cursor: pointer" onclick="changeLanguage('tr')">
+                    Tr
+                  </li>
+                  <li style="cursor: pointer" onclick="changeLanguage('it')">
+                    It
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+          <section class="sidebar">
+            <div>
+              <div>
+                <h1>Logo</h1>
+
+                <h3>
+                  Menu 1
+                  <p>Menu 2</p>
+                </h3>
+              </div>
+
+              <ul>
+                <li class="has_dropdown" id="languageDropdown">
+                  En
+                  <i class="fa-solid fa-chevron-down"></i>
+                  <ul class="dropdown">
+                    <li style="cursor: pointer" onclick="changeLanguage('en')">
+                      En
+                    </li>
+                    <li style="cursor: pointer" onclick="changeLanguage('zh')">
+                      Zh
+                    </li>
+                    <li style="cursor: pointer" onclick="changeLanguage('tr')">
+                      Tr
+                    </li>
+                    <li style="cursor: pointer" onclick="changeLanguage('it')">
+                      It
+                    </li>
+                  </ul>
+                </li>
+              </ul>
+            </div>
+          </section>
+          <div>
+            <button id="hamburgerBtn">
+              <i class="fa-solid fa-bars"></i>
+            </button>
+            <button id="list">
+              Watchlist
+              <div></div>
+            </button>
+
+            <button id="sign_in_btn">Sign In</button>
+          </div>
+        </header>
+        <div class="volume">
+          <div>
+            <i class="fa-solid fa-volume-high"></i>
+          </div>
+        </div>
+      </div>
+      <section id="watchlistContainer" style="display: none">
+        <section style="display: block" class="exit_list">
+          <i class="fa-solid fa-xmark exit_icon"></i>
+        </section>
+      </section>
+    </section>
+
+    <div class="modal-overlay" style="display: none"></div>
+    <section class="sign_in_modal" style="display: none">
+      <section class="sign_in modal-content">
+        <h2>Sign In</h2>
+        <div>
+          <h4>Do you have an toog account?</h4>
+          <form action="">
+            <label for="email"> Email </label>
+            <input
+              class="email_input"
+              id="emailInput"
+              name="email"
+              type="email"
+              placeholder="nursev@gmail.com"
+            />
+            <label for="password"> Password </label>
+            <input
+              class="password_input"
+              id="passwordInput"
+              name="password"
+              type="password"
+              placeholder="********"
+            />
+            <p>Forgot password?</p>
+          </form>
+          <div class="sign_btn">
+            <button><a href="#">Sign Up</a></button>
+            <button><a href="#">Sign In</a></button>
+          </div>
+          <p class="sign_in_text">
+            This site is protected by reCAPTCHA and the Google
+            <a href="#">Privacy Policy </a> and
+            <a href="#">Terms of Service</a> apply.
+          </p>
+        </div>
+        <section class="exit">
+          <i class="fa-solid fa-xmark"></i>
+        </section>
+      </section>
+    </section>
+    <div class="container">
+      <div class="carousel">
+        <section class="movies">
+          <div class="container">
+            <div class="movies_box" id="movieContainer1"></div>
+          </div>
+        </section>
+        <button class="prev">
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16 25.191L4.11392 13.5L16 1.809L14.164 0L0.474999 13.5068L14.164 27L16 25.191Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <button class="next">
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 25.191L11.8861 13.5L0 1.809L1.836 0L15.525 13.5068L1.836 27L0 25.191Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </div>
+      <div class="carousel">
+        <section class="movies">
+          <div class="container">
+            <div class="movies_box" id="movieContainer2"></div>
+          </div>
+        </section>
+        <button class="prev">
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M16 25.191L4.11392 13.5L16 1.809L14.164 0L0.474999 13.5068L14.164 27L16 25.191Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <button class="next">
+          <svg
+            width="16"
+            height="27"
+            viewBox="0 0 16 27"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <path
+              fill-rule="evenodd"
+              clip-rule="evenodd"
+              d="M0 25.191L11.8861 13.5L0 1.809L1.836 0L15.525 13.5068L1.836 27L0 25.191Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+      </div>
+    </div>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
